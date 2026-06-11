@@ -19,7 +19,12 @@ resource "oci_core_instance" "wordpress_vm" {
 
   display_name = "wordpress-devops-vm"
 
-  shape = "VM.Standard.E2.1.Micro"
+  shape = "VM.Standard.A1.Flex"
+
+  shape_config {
+    ocpus         = 1
+    memory_in_gbs = 6
+  }
 
   create_vnic_details {
 
@@ -41,7 +46,7 @@ resource "oci_core_instance" "wordpress_vm" {
 
     ssh_authorized_keys = var.ssh_public_key
 
-    user_data = base64encode(file("cloud-init.sh"))
+    user_data = base64encode(file("cloud.init.sh"))
   }
 }
 
