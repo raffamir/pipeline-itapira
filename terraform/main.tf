@@ -39,23 +39,7 @@ resource "oci_core_instance" "wordpress_vm" {
 
     ssh_authorized_keys = var.ssh_public_key
 
-    user_data = base64encode(<<-EOF
-#!/bin/bash
-
-fallocate -l 2G /swapfile
-
-chmod 600 /swapfile
-
-mkswap /swapfile
-
-swapon /swapfile
-
-echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
-
-echo "Cloud Init OK" > /tmp/cloud-init-ok.txt
-
-EOF
-    )
+    user_data = base64encode(file("${path.module}/cloud.init.sh"))
   }
 }
 

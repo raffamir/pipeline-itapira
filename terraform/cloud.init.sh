@@ -1,4 +1,3 @@
-user_data = base64encode(<<-EOF
 #!/bin/bash
 
 fallocate -l 2G /swapfile
@@ -19,6 +18,3 @@ systemctl start docker
 usermod -aG docker ubuntu
 
 echo "Docker OK" > /tmp/docker-ok.txt
-
-EOF
-)
