@@ -1,7 +1,5 @@
 #!/bin/bash
 
-dnf update -y
-
 dnf install -y docker
 
 systemctl enable docker
@@ -9,3 +7,5 @@ systemctl enable docker
 systemctl start docker
 
 usermod -aG docker opc
+
+mkdir -p /opt/wordpress
