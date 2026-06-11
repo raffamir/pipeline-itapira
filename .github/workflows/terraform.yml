@@ -1,4 +1,4 @@
-name: Terraform OCI Test
+name: Pipeline - Itapira
 
 on:
   push:
