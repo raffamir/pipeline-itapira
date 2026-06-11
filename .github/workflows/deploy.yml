@@ -1,4 +1,4 @@
-name: Deploy WordPress
+name: Pipeline CD WordPress
 
 on:
   push:
