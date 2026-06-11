@@ -150,7 +150,7 @@ resource "oci_core_instance" "wordpress_vm" {
 
     ssh_authorized_keys = var.ssh_public_key
 
-    user_data = base64encode(file("${path.module}/cloud-init.sh"))
+    user_data = base64encode(file("cloud-init.sh"))
   }
 }
 
