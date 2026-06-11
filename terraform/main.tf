@@ -1,10 +1,10 @@
-data "oci_core_images" "ubuntu" {
+data "oci_core_images" "oracle_linux" {
 
   compartment_id = var.compartment_ocid
 
-  operating_system = "Canonical Ubuntu"
+  operating_system = "Oracle Linux"
 
-  operating_system_version = "22.04"
+  operating_system_version = "9"
 
   sort_by = "TIMECREATED"
 
@@ -19,12 +19,7 @@ resource "oci_core_instance" "wordpress_vm" {
 
   display_name = "wordpress-devops-vm"
 
-  shape = "VM.Standard.A1.Flex"
-
-  shape_config {
-    ocpus         = 1
-    memory_in_gbs = 6
-  }
+  shape = "VM.Standard.E2.1.Micro"
 
   create_vnic_details {
 
@@ -39,7 +34,7 @@ resource "oci_core_instance" "wordpress_vm" {
 
     source_type = "image"
 
-    source_id = data.oci_core_images.ubuntu.images[0].id
+    source_id = data.oci_core_images.oracle_linux.images[0].id
   }
 
   metadata = {

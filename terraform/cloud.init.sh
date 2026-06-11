@@ -1,13 +1,11 @@
 #!/bin/bash
 
-apt-get update
+dnf update -y
 
-apt-get install -y docker.io
-
-apt-get install -y docker-compose-v2
+dnf install -y docker
 
 systemctl enable docker
 
 systemctl start docker
 
-usermod -aG docker ubuntu
+usermod -aG docker opc
