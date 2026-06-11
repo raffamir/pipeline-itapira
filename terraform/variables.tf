@@ -21,3 +21,5 @@ variable "compartment_ocid" {}
 variable "ssh_public_key" {
   sensitive = true
 }
+
+variable "subnet_ocid" {}

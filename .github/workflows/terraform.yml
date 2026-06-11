@@ -37,6 +37,7 @@ jobs:
           TF_VAR_region: ${{ secrets.OCI_REGION }}
           TF_VAR_compartment_ocid: ${{ secrets.OCI_COMPARTMENT_OCID }}
           TF_VAR_ssh_public_key: ${{ secrets.OCI_SSH_PUBLIC_KEY }}
+          TF_VAR_subnet_ocid: ${{ secrets.OCI_SUBNET_OCID }}
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
@@ -48,3 +49,4 @@ jobs:
           TF_VAR_region: ${{ secrets.OCI_REGION }}
           TF_VAR_compartment_ocid: ${{ secrets.OCI_COMPARTMENT_OCID }}
           TF_VAR_ssh_public_key: ${{ secrets.OCI_SSH_PUBLIC_KEY }}
+          TF_VAR_subnet_ocid: ${{ secrets.OCI_SUBNET_OCID }}
