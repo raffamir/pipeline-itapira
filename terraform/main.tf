@@ -23,7 +23,7 @@ resource "oci_core_instance" "wordpress_vm" {
 
   create_vnic_details {
 
-    subnet_id = oci_core_subnet.devops_subnet.id
+    subnet_id = var.subnet_ocid
 
     assign_public_ip = true
 
