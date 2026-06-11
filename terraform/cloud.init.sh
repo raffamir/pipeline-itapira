@@ -1,11 +1,13 @@
 #!/bin/bash
 
-dnf install -y docker
+fallocate -l 2G /swapfile
 
-systemctl enable docker
+chmod 600 /swapfile
 
-systemctl start docker
+mkswap /swapfile
 
-usermod -aG docker opc
+swapon /swapfile
 
-mkdir -p /opt/wordpress
+echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
+
+echo "Cloud Init OK" > /tmp/cloud-init-ok.txt
