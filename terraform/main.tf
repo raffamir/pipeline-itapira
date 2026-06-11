@@ -4,7 +4,7 @@ data "oci_core_images" "ubuntu" {
 
   operating_system = "Canonical Ubuntu"
 
-  operating_system_version = "24.04"
+  operating_system_version = "22.04"
 
   sort_by = "TIMECREATED"
 
