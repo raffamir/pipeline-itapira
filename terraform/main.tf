@@ -1,3 +1,14 @@
+data "oci_core_images" "ubuntu" {
+
+  compartment_id = var.compartment_ocid
+
+  operating_system = "Canonical Ubuntu"
+
+  sort_by = "TIMECREATED"
+
+  sort_order = "DESC"
+}
+
 resource "oci_core_instance" "wordpress_vm" {
 
   availability_domain = "XHPb:SA-SAOPAULO-1-AD-1"
@@ -21,7 +32,7 @@ resource "oci_core_instance" "wordpress_vm" {
 
     source_type = "image"
 
-    source_id = "ocid1.image.oc1.***.aaaaaaaakvwmxajgkw5qcdsfyvzrx7q6btz6wz52npxstonpnd3cuxu4p65q"
+    source_id = data.oci_core_images.ubuntu.images[2].id
   }
 
   metadata = {
