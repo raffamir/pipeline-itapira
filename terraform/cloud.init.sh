@@ -1,3 +1,4 @@
+user_data = base64encode(<<-EOF
 #!/bin/bash
 
 fallocate -l 2G /swapfile
@@ -7,4 +8,17 @@ swapon /swapfile
 
 echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
 
-echo "OK" > /tmp/cloud-init-ok.txt
+apt update
+
+apt install -y docker.io
+
+systemctl enable docker
+
+systemctl start docker
+
+usermod -aG docker ubuntu
+
+echo "Docker OK" > /tmp/docker-ok.txt
+
+EOF
+)
