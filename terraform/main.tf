@@ -1,7 +1,14 @@
-data "oci_identity_availability_domains" "ads" {
-  compartment_id = var.tenancy_ocid
+resource "oci_core_vcn" "devops_vcn" {
+
+  compartment_id = var.compartment_ocid
+
+  cidr_block = "10.0.0.0/16"
+
+  display_name = "devops-vcn"
+
+  dns_label = "devopsvcn"
 }
 
-output "availability_domains" {
-  value = data.oci_identity_availability_domains.ads.availability_domains[*].name
+output "vcn_id" {
+  value = oci_core_vcn.devops_vcn.id
 }
