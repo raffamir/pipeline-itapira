@@ -1,4 +1,4 @@
-name: Deploy WordPress 1
+name: Deploy WordPress
 
 on:
   push:

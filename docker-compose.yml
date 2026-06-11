@@ -13,7 +13,7 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
-  wordpress:
+  wp:
     image: wordpress:latest
     restart: always
 

@@ -1,10 +1,9 @@
-name: Pipeline - Itapira
+name: Pipeline - IaC
 
 on:
   push:
     paths:
       - 'terraform/**'
-  workflow_dispatch:
 
 jobs:
 
