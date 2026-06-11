@@ -9,7 +9,7 @@ echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
 
 apt update
 
-apt install -y docker.io
+apt install -y docker.io docker-compose-v2
 
 systemctl enable docker
 

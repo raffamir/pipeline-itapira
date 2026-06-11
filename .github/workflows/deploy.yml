@@ -2,8 +2,10 @@ name: Deploy WordPress
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - 'docker-compose.yml'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
 
 jobs:
 
